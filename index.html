@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ໃບສະເໜີລາຄາ — ສ້າງອອນລາຍ</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Lao:wght@400;600;700&family=Noto+Sans+Lao:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+Lao:wght@400;600;700&family=Noto+Sans+Lao:wght@400;500;600;700&family=Noto+Sans+SC:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
 <style>
   :root{
     --ink:#1c2b2e;
@@ -23,7 +23,7 @@
   *{box-sizing:border-box;}
   html,body{margin:0;padding:0;}
   body{
-    font-family:'Noto Sans Lao','Noto Sans',sans-serif;
+    font-family:'Noto Sans Lao','Noto Sans SC','Noto Sans',sans-serif;
     background:
       radial-gradient(circle at 15% 10%, #103e3b 0%, transparent 45%),
       radial-gradient(circle at 85% 90%, #0a2e2b 0%, transparent 50%),
@@ -56,7 +56,7 @@
     gap:10px;
   }
   .brandbar h1{
-    font-family:'Noto Serif Lao',serif;
+    font-family:'Noto Serif Lao','Noto Sans SC',serif;
     font-size:26px;
     font-weight:700;
     margin:0;
@@ -92,6 +92,10 @@
     color:#fdf9ee;
   }
   .tab-btn-new:hover{background:#742626;border-color:#742626;}
+  .tab-btn-lang{
+    background:rgba(255,255,255,.06);
+    border-color:rgba(255,255,255,.25);
+  }
 
   /* ===== Form panel ===== */
   .panel{
@@ -111,7 +115,7 @@
   }
   .section:last-of-type{border-bottom:none;margin-bottom:0;padding-bottom:0;}
   .section > summary{
-    font-family:'Noto Serif Lao',serif;
+    font-family:'Noto Serif Lao','Noto Sans SC',serif;
     font-size:15px;
     color:var(--teal);
     padding:6px 2px;
@@ -289,7 +293,7 @@
   }
   .doc-head, .party-block, table, .totals, .note-block, .sign-area{position:relative;z-index:1;}
   .doc-head .company .cname{
-    font-family:'Noto Serif Lao',serif;
+    font-family:'Noto Serif Lao','Noto Sans SC',serif;
     font-weight:700;
     font-size:23px;
     color:var(--teal);
@@ -303,7 +307,7 @@
   }
   .doc-title-block{text-align:right;flex-shrink:0;}
   .doc-title{
-    font-family:'Noto Serif Lao',serif;
+    font-family:'Noto Serif Lao','Noto Sans SC',serif;
     font-size:28px;
     font-weight:700;
     color:var(--brass);
@@ -435,7 +439,7 @@
     display:flex;align-items:center;justify-content:center;
     text-align:center;
     color:var(--red-stamp);
-    font-family:'Noto Serif Lao',serif;
+    font-family:'Noto Serif Lao','Noto Sans SC',serif;
     font-weight:700;
     font-size:13px;
     line-height:1.3;
@@ -478,7 +482,7 @@
     gap:10px;
   }
   .report-head h2{
-    font-family:'Noto Serif Lao',serif;
+    font-family:'Noto Serif Lao','Noto Sans SC',serif;
     color:var(--teal);
     font-size:19px;
     margin:0;
@@ -542,13 +546,14 @@
 <body>
 
 <div class="brandbar">
-  <h1>ໃບສະເໜີລາຄາ</h1>
+  <h1 data-i18n="brandTitle">ໃບສະເໜີລາຄາ</h1>
   <div class="view-tabs">
-    <button class="tab-btn active" id="tabQuoteBtn" type="button">📄 ໃບສະເໜີລາຄາ</button>
-    <button class="tab-btn" id="tabReportBtn" type="button">📊 ໜ້າລາຍງານ</button>
-    <button class="tab-btn tab-btn-new" id="newQuoteBtn" type="button">🆕 ໃບສະເໜີໃໝ່</button>
+    <button class="tab-btn active" id="tabQuoteBtn" type="button">📄 <span data-i18n="tabQuote">ໃບສະເໜີລາຄາ</span></button>
+    <button class="tab-btn" id="tabReportBtn" type="button">📊 <span data-i18n="tabReport">ໜ້າລາຍງານ</span></button>
+    <button class="tab-btn tab-btn-new" id="newQuoteBtn" type="button">🆕 <span data-i18n="btnNewQuote">ໃບສະເໜີໃໝ່</span></button>
+    <button class="tab-btn tab-btn-lang" id="langToggleBtn" type="button">🌐 中文</button>
   </div>
-  <span>ຕື່ມຂໍ້ມູນທາງຊ້າຍ ແລ້ວເອກະສານທາງຂວາຈະອັບເດດອັດຕະໂນມັດ — ພ້ອມພິມ ຫຼື ບັນທຶກເປັນ PDF</span>
+  <span data-i18n="brandSubtitle">ຕື່ມຂໍ້ມູນທາງຊ້າຍ ແລ້ວເອກະສານທາງຂວາຈະອັບເດດອັດຕະໂນມັດ — ພ້ອມພິມ ຫຼື ບັນທຶກເປັນ PDF</span>
 </div>
 
 <div class="wrap" id="quoteView">
@@ -557,70 +562,70 @@
   <div class="panel">
 
     <details class="section">
-      <summary>ຂໍ້ມູນບໍລິສັດ</summary>
-      <div class="field"><label>ຊື່ບໍລິສັດ / ຮ້ານ</label><input type="text" id="companyName" value="ບໍລິສັດ ຕົວຢ່າງ ຈຳກັດ"></div>
-      <div class="field"><label>ທີ່ຢູ່ / ເບີໂທ / ອີເມວ</label><textarea id="companyMeta">ບ້ານ ໜອງບອນ, ເມືອງ ໄຊເສດຖາ, ນະຄອນຫຼວງວຽງຈັນ
+      <summary data-i18n="secCompany">ຂໍ້ມູນບໍລິສັດ</summary>
+      <div class="field"><label data-i18n="lblCompanyName">ຊື່ບໍລິສັດ / ຮ້ານ</label><input type="text" id="companyName" value="ບໍລິສັດ ຕົວຢ່າງ ຈຳກັດ"></div>
+      <div class="field"><label data-i18n="lblCompanyMeta">ທີ່ຢູ່ / ເບີໂທ / ອີເມວ</label><textarea id="companyMeta">ບ້ານ ໜອງບອນ, ເມືອງ ໄຊເສດຖາ, ນະຄອນຫຼວງວຽງຈັນ
 ໂທ: 020 5555 5555 | example@email.com</textarea></div>
     </details>
 
     <details class="section" open>
-      <summary>ຂໍ້ມູນລູກຄ້າ</summary>
-      <div class="field"><label>ຊື່ລູກຄ້າ / ບໍລິສັດລູກຄ້າ</label><input type="text" id="clientName" value="ທ່ານ ສົມສະໜຸກ ວົງສະຫວັນ"></div>
-      <div class="field"><label>ທີ່ຢູ່ / ເບີໂທ</label><textarea id="clientMeta">ບ້ານ ໂພນສະຫວັນ, ເມືອງ ຈັນທະບູລີ, ນະຄອນຫຼວງວຽງຈັນ
+      <summary data-i18n="secClient">ຂໍ້ມູນລູກຄ້າ</summary>
+      <div class="field"><label data-i18n="lblClientName">ຊື່ລູກຄ້າ / ບໍລິສັດລູກຄ້າ</label><input type="text" id="clientName" value="ທ່ານ ສົມສະໜຸກ ວົງສະຫວັນ"></div>
+      <div class="field"><label data-i18n="lblClientMeta">ທີ່ຢູ່ / ເບີໂທ</label><textarea id="clientMeta">ບ້ານ ໂພນສະຫວັນ, ເມືອງ ຈັນທະບູລີ, ນະຄອນຫຼວງວຽງຈັນ
 ໂທ: 020 9999 9999</textarea></div>
     </details>
 
     <details class="section" open>
-      <summary>ເລກທີ / ວັນທີ</summary>
+      <summary data-i18n="secDocNo">ເລກທີ / ວັນທີ</summary>
       <div class="row2">
-        <div class="field"><label>ເລກທີໃບສະເໜີ</label><input type="text" id="docNo" value="QT-2026-001"></div>
-        <div class="field"><label>ວັນທີ</label><input type="date" id="docDate"></div>
+        <div class="field"><label data-i18n="lblDocNo">ເລກທີໃບສະເໜີ</label><input type="text" id="docNo" value="QT-2026-001"></div>
+        <div class="field"><label data-i18n="lblDocDate">ວັນທີ</label><input type="date" id="docDate"></div>
       </div>
-      <div class="field"><label>ໃຊ້ໄດ້ຮອດວັນທີ (ອາຍຸໃບສະເໜີ)</label><input type="date" id="validDate"></div>
+      <div class="field"><label data-i18n="lblValidDate">ໃຊ້ໄດ້ຮອດວັນທີ (ອາຍຸໃບສະເໜີ)</label><input type="date" id="validDate"></div>
     </details>
 
     <details class="section" open>
-      <summary>ລາຍການສິນຄ້າ / ບໍລິການ</summary>
+      <summary data-i18n="secItems">ລາຍການສິນຄ້າ / ບໍລິການ</summary>
       <div class="items-list" id="itemsList"></div>
-      <button class="btn btn-add" id="addItemBtn" type="button">+ ເພີ່ມລາຍການ</button>
+      <button class="btn btn-add" id="addItemBtn" type="button">+ <span data-i18n="btnAddItem">ເພີ່ມລາຍການ</span></button>
     </details>
 
     <details class="section">
-      <summary>ສ່ວນຫຼຸດ</summary>
-      <div class="field" style="margin-bottom:0;"><label>ສ່ວນຫຼຸດ (%)</label><input type="number" id="discountRate" value="0" min="0" max="100" step="0.1"></div>
+      <summary data-i18n="secDiscount">ສ່ວນຫຼຸດ</summary>
+      <div class="field" style="margin-bottom:0;"><label data-i18n="lblDiscountPct">ສ່ວນຫຼຸດ (%)</label><input type="number" id="discountRate" value="0" min="0" max="100" step="0.1"></div>
     </details>
 
     <details class="section">
-      <summary>ໝາຍເຫດ</summary>
+      <summary data-i18n="secNote">ໝາຍເຫດ</summary>
       <div class="field"><textarea id="noteText">ລາຄານີ້ຍັງບໍ່ລວມຄ່າຂົນສົ່ງ. ກະລຸນາຢືນຢັນຄຳສັ່ງຊື້ພາຍໃນວັນທີໝົດອາຍຸຂອງໃບສະເໜີ.</textarea></div>
     </details>
 
     <details class="section">
-      <summary>ຮູບພາບປະກອບ</summary>
+      <summary data-i18n="secAttach">ຮູບພາບປະກອບ</summary>
       <div class="field">
-        <label>ອັບໂຫລດຮູບ (ຈະສະແດງທາງລຸ່ມຂອງ "ລວມທັງໝົດ" ໃນເອກະສານ)</label>
+        <label data-i18n="lblAttachUpload">ອັບໂຫລດຮູບ (ຈະສະແດງທາງລຸ່ມຂອງ "ລວມທັງໝົດ" ໃນເອກະສານ)</label>
         <div class="attach-upload-row">
           <div class="attach-thumb" id="attachThumbBox"><span class="placeholder">🖼️</span></div>
           <input type="file" accept="image/*" id="attachImageInput">
-          <button type="button" class="btn-rm-attach" id="removeAttachBtn" style="display:none;">ລຶບຮູບ</button>
+          <button type="button" class="btn-rm-attach" id="removeAttachBtn" style="display:none;" data-i18n="btnRmImg">ລຶບຮູບ</button>
         </div>
       </div>
     </details>
 
     <details class="section">
-      <summary>🔗 ຖານຂໍ້ມູນ Google Sheet</summary>
+      <summary>🔗 <span data-i18n="secSheet">ຖານຂໍ້ມູນ Google Sheet</span></summary>
       <div class="field">
-        <label>Web App URL (ຈາກ Google Apps Script)</label>
+        <label data-i18n="lblSheetUrl">Web App URL (ຈາກ Google Apps Script)</label>
         <input type="text" id="sheetUrl" placeholder="https://script.google.com/macros/s/xxxx/exec">
       </div>
-      <button class="btn btn-sheet" id="loadItemsBtn" type="button">📥 ດຶງລາຍການສິນຄ້າຈາກ Sheet</button>
-      <button class="btn btn-sheet" id="saveQuoteBtn" type="button">📤 ບັນທຶກໃບສະເໜີນີ້ໄປ Sheet</button>
+      <button class="btn btn-sheet" id="loadItemsBtn" type="button">📥 <span data-i18n="btnLoadItems">ດຶງລາຍການສິນຄ້າຈາກ Sheet</span></button>
+      <button class="btn btn-sheet" id="saveQuoteBtn" type="button">📤 <span data-i18n="btnSaveQuote">ບັນທຶກໃບສະເໜີນີ້ໄປ Sheet</span></button>
       <div class="sheet-status" id="sheetStatus"></div>
       <div class="sheet-hint">ຕ້ອງຕັ້ງຄ່າ Google Apps Script ກ່ອນຈຶ່ງໃຊ້ໄດ້ — ເບິ່ງໄຟລ໌ Code.gs ແລະ ຄຳແນະນຳທີ່ໃຫ້ໄປພ້ອມກັນ. (ຮູບພາບປະກອບຈະຖືກຫຍໍ້ຂະໜາດອັດຕະໂນມັດກ່ອນບັນທຶກ ເນື່ອງຈາກ Google Sheet ຈຳກັດຂະໜາດຂໍ້ມູນຕໍ່ຊ່ອງ)</div>
     </details>
 
-    <button class="btn btn-print" id="printBtn" type="button">🖨️ ພິມ / ບັນທຶກເປັນ PDF</button>
-    <button class="btn btn-export" id="exportImgBtn" type="button">🖼️ Export ເປັນຮູບພາບ (PNG)</button>
+    <button class="btn btn-print" id="printBtn" type="button">🖨️ <span data-i18n="btnPrint">ພິມ / ບັນທຶກເປັນ PDF</span></button>
+    <button class="btn btn-export" id="exportImgBtn" type="button">🖼️ <span data-i18n="btnExportImg">Export ເປັນຮູບພາບ (PNG)</span></button>
   </div>
 
   <!-- ===================== DOCUMENT PREVIEW ===================== -->
@@ -636,16 +641,16 @@
           </div>
         </div>
         <div class="doc-title-block">
-          <p class="doc-title">ໃບສະເໜີລາຄາ</p>
-          <div class="doc-no">ເລກທີ: <span id="pDocNo"></span></div>
-          <div class="doc-date">ວັນທີ: <span id="pDocDate"></span></div>
-          <div class="doc-date">ໃຊ້ໄດ້ຮອດ: <span id="pValidDate"></span></div>
+          <p class="doc-title" data-i18n="docTitle">ໃບສະເໜີລາຄາ</p>
+          <div class="doc-no"><span data-i18n="docNoLabel">ເລກທີ:</span> <span id="pDocNo"></span></div>
+          <div class="doc-date"><span data-i18n="docDateLabel">ວັນທີ:</span> <span id="pDocDate"></span></div>
+          <div class="doc-date"><span data-i18n="docValidLabel">ໃຊ້ໄດ້ຮອດ:</span> <span id="pValidDate"></span></div>
         </div>
       </div>
 
       <div class="party-block">
         <div>
-          <div class="label">ສະເໜີເຖິງ</div>
+          <div class="label" data-i18n="docToLabel">ສະເໜີເຖິງ</div>
           <div class="name" id="pClientName"></div>
           <div class="meta" id="pClientMeta"></div>
         </div>
@@ -654,12 +659,12 @@
       <table>
         <thead>
           <tr>
-            <th style="width:34px;" class="center">ລ.</th>
-            <th>ລາຍການ</th>
-            <th class="center" style="width:70px;">ຂະໜາດ</th>
-            <th class="center" style="width:60px;">ຈຳນວນ</th>
-            <th class="num" style="width:110px;">ລາຄາ/ໜ່ວຍ</th>
-            <th class="num" style="width:120px;">ລວມ</th>
+            <th style="width:34px;" class="center" data-i18n="thNo">ລ.</th>
+            <th data-i18n="thItem">ລາຍການ</th>
+            <th class="center" style="width:70px;" data-i18n="thSize">ຂະໜາດ</th>
+            <th class="center" style="width:60px;" data-i18n="thQty">ຈຳນວນ</th>
+            <th class="num" style="width:110px;" data-i18n="thPrice">ລາຄາ/ໜ່ວຍ</th>
+            <th class="num" style="width:120px;" data-i18n="thLineTotal">ລວມ</th>
           </tr>
         </thead>
         <tbody id="pItemsBody"></tbody>
@@ -675,12 +680,12 @@
 
       <div class="sign-area">
         <div class="sign-col">
-          <div class="role">ຜູ້ສະເໜີລາຄາ</div>
-          <div class="line">ລາຍເຊັນ ແລະ ວັນທີ</div>
+          <div class="role" data-i18n="signSeller">ຜູ້ສະເໜີລາຄາ</div>
+          <div class="line" data-i18n="signLine">ລາຍເຊັນ ແລະ ວັນທີ</div>
         </div>
         <div class="sign-col">
-          <div class="role">ຜູ້ອະນຸມັດ / ລູກຄ້າ</div>
-          <div class="line">ລາຍເຊັນ ແລະ ວັນທີ</div>
+          <div class="role" data-i18n="signBuyer">ຜູ້ອະນຸມັດ / ລູກຄ້າ</div>
+          <div class="line" data-i18n="signLine">ລາຍເຊັນ ແລະ ວັນທີ</div>
         </div>
       </div>
 
@@ -691,10 +696,10 @@
 
 <div class="report-outer" id="reportView" style="display:none;">
   <div class="report-head">
-    <h2>📊 ໜ້າລາຍງານ — ໃບສະເໜີລາຄາທີ່ບັນທຶກໄວ້</h2>
+    <h2>📊 <span data-i18n="reportTitle">ໜ້າລາຍງານ — ໃບສະເໜີລາຄາທີ່ບັນທຶກໄວ້</span></h2>
     <div class="report-controls">
-      <input type="text" id="reportSearch" placeholder="ຄົ້ນຫາຕາມເລກທີ ຫຼື ຊື່ລູກຄ້າ">
-      <button class="btn btn-refresh" id="refreshReportBtn" type="button">🔄 ໂຫລດຂໍ້ມູນ</button>
+      <input type="text" id="reportSearch" data-i18n-placeholder="reportSearchPh" placeholder="ຄົ້ນຫາຕາມເລກທີ ຫຼື ຊື່ລູກຄ້າ">
+      <button class="btn btn-refresh" id="refreshReportBtn" type="button">🔄 <span data-i18n="btnRefresh">ໂຫລດຂໍ້ມູນ</span></button>
     </div>
   </div>
   <div class="report-status" id="reportStatus"></div>
@@ -702,17 +707,17 @@
     <table class="report-table">
       <thead>
         <tr>
-          <th>ວັນທີບັນທຶກ</th>
-          <th>ເລກທີ</th>
-          <th>ວັນທີ</th>
-          <th>ລູກຄ້າ</th>
-          <th class="num">ຍອດລວມ</th>
-          <th>ຈັດການ</th>
+          <th data-i18n="thSavedDate">ວັນທີບັນທຶກ</th>
+          <th data-i18n="thDocNo">ເລກທີ</th>
+          <th data-i18n="thDate">ວັນທີ</th>
+          <th data-i18n="thClient">ລູກຄ້າ</th>
+          <th class="num" data-i18n="thGrandTotal">ຍອດລວມ</th>
+          <th data-i18n="thAction">ຈັດການ</th>
         </tr>
       </thead>
       <tbody id="reportBody"></tbody>
     </table>
-    <div class="report-empty" id="reportEmpty" style="display:none;">ຍັງບໍ່ມີຂໍ້ມູນ — ກົດ "ໂຫລດຂໍ້ມູນ" ຫຼັງຈາກຕັ້ງຄ່າ Web App URL ແລ້ວ</div>
+    <div class="report-empty" id="reportEmpty" style="display:none;" data-i18n="reportEmptyMsg">ຍັງບໍ່ມີຂໍ້ມູນ — ກົດ "ໂຫລດຂໍ້ມູນ" ຫຼັງຈາກຕັ້ງຄ່າ Web App URL ແລ້ວ</div>
   </div>
 </div>
 
@@ -731,6 +736,10 @@ let lastTotals = {subtotal:0, discountAmt:0, grandTotal:0};
 let attachImage = '';
 
 const fmt = n => (Math.round(n*100)/100).toLocaleString('en-US', {minimumFractionDigits:0, maximumFractionDigits:2});
+
+function formatSize(it){
+  return it.size ? it.size : '-';
+}
 
 function todayStr(offsetDays=0){
   const d = new Date();
@@ -755,10 +764,10 @@ function renderItemsForm(){
         <input type="text" data-field="name" data-idx="${idx}" value="${escapeHtml(it.name)}" placeholder="ຊື່ລາຍການ">
       </div>
       <div class="item-grid">
-        <div><label>ຂະໜາດ</label><input type="text" data-field="size" data-idx="${idx}" value="${escapeHtml(it.size||'')}" placeholder="ຂະໜາດ"></div>
-        <div><label>ຈຳນວນ</label><input type="number" min="0" step="1" data-field="qty" data-idx="${idx}" value="${it.qty}"></div>
-        <div><label>ລາຄາ/ໜ່ວຍ (ກີບ)</label><input type="number" min="0" step="1000" data-field="price" data-idx="${idx}" value="${it.price}"></div>
-        <div><label>ລວມ</label><input type="text" disabled value="${fmt(it.qty*it.price)}"></div>
+        <div><label>${t('lblSize')}</label><input type="text" data-field="size" data-idx="${idx}" value="${escapeHtml(it.size||'')}" placeholder="${t('lblSize')}"></div>
+        <div><label>${t('lblQty')}</label><input type="number" min="0" step="1" data-field="qty" data-idx="${idx}" value="${it.qty}"></div>
+        <div><label>${t('lblPrice')}</label><input type="number" min="0" step="1000" data-field="price" data-idx="${idx}" value="${it.price}"></div>
+        <div><label>${t('lblLineTotal')}</label><input type="text" disabled value="${fmt(it.qty*it.price)}"></div>
       </div>
     `;
     list.appendChild(card);
@@ -799,7 +808,7 @@ function updatePreview(){
     tr.innerHTML = `
       <td class="center">${idx+1}</td>
       <td>${escapeHtml(it.name) || '-'}</td>
-      <td class="center">${escapeHtml(it.size||'') || '-'}</td>
+      <td class="center">${formatSize(it)}</td>
       <td class="center">${it.qty}</td>
       <td class="num">${fmt(it.price)}</td>
       <td class="num">${fmt(lineTotal)}</td>
@@ -815,9 +824,9 @@ function updatePreview(){
 
   const totalsEl = document.getElementById('pTotals');
   totalsEl.innerHTML = `
-    <div class="trow"><span>ລວມຍ່ອຍ</span><span>${fmt(subtotal)} ກີບ</span></div>
-    ${discountRate > 0 ? `<div class="trow discount"><span>ສ່ວນຫຼຸດ (${discountRate}%)</span><span>-${fmt(discountAmt)} ກີບ</span></div>` : ''}
-    <div class="grand"><span>ລວມທັງໝົດ</span><span>${fmt(grandTotal)} ກີບ</span></div>
+    <div class="trow"><span>${t('subtotal')}</span><span>${fmt(subtotal)} ${t('currency')}</span></div>
+    ${discountRate > 0 ? `<div class="trow discount"><span>${t('discountPct').replace('{n}', discountRate)}</span><span>-${fmt(discountAmt)} ${t('currency')}</span></div>` : ''}
+    <div class="grand"><span>${t('grandTotal')}</span><span>${fmt(grandTotal)} ${t('currency')}</span></div>
   `;
 }
 
@@ -997,11 +1006,101 @@ document.getElementById('saveQuoteBtn').addEventListener('click', async () => {
   document.getElementById(id).addEventListener('change', updatePreview);
 });
 
-// init
-document.getElementById('docDate').value = todayStr();
-document.getElementById('validDate').value = todayStr(15);
-renderItemsForm();
-updatePreview();
+/* ===================== I18N: LAO / CHINESE ===================== */
+let currentLang = 'lo';
+
+const translations = {
+  brandTitle: {lo:'ໃບສະເໜີລາຄາ', zh:'报价单'},
+  brandSubtitle: {lo:'ຕື່ມຂໍ້ມູນທາງຊ້າຍ ແລ້ວເອກະສານທາງຂວາຈະອັບເດດອັດຕະໂນມັດ — ພ້ອມພິມ ຫຼື ບັນທຶກເປັນ PDF', zh:'在左侧填写信息，右侧文件会自动更新 — 可打印或另存为PDF'},
+  tabQuote: {lo:'ໃບສະເໜີລາຄາ', zh:'报价单'},
+  tabReport: {lo:'ໜ້າລາຍງານ', zh:'报表页面'},
+  btnNewQuote: {lo:'ໃບສະເໜີໃໝ່', zh:'新建报价单'},
+  secCompany: {lo:'ຂໍ້ມູນບໍລິສັດ', zh:'公司信息'},
+  secClient: {lo:'ຂໍ້ມູນລູກຄ້າ', zh:'客户信息'},
+  secDocNo: {lo:'ເລກທີ / ວັນທີ', zh:'编号 / 日期'},
+  secItems: {lo:'ລາຍການສິນຄ້າ / ບໍລິການ', zh:'商品 / 服务项目'},
+  secDiscount: {lo:'ສ່ວນຫຼຸດ', zh:'折扣'},
+  secNote: {lo:'ໝາຍເຫດ', zh:'备注'},
+  secAttach: {lo:'ຮູບພາບປະກອບ', zh:'附加图片'},
+  secSheet: {lo:'ຖານຂໍ້ມູນ Google Sheet', zh:'Google Sheet 数据库'},
+  lblCompanyName: {lo:'ຊື່ບໍລິສັດ / ຮ້ານ', zh:'公司 / 店铺名称'},
+  lblCompanyMeta: {lo:'ທີ່ຢູ່ / ເບີໂທ / ອີເມວ', zh:'地址 / 电话 / 邮箱'},
+  lblClientName: {lo:'ຊື່ລູກຄ້າ / ບໍລິສັດລູກຄ້າ', zh:'客户姓名 / 公司'},
+  lblClientMeta: {lo:'ທີ່ຢູ່ / ເບີໂທ', zh:'地址 / 电话'},
+  lblDocNo: {lo:'ເລກທີໃບສະເໜີ', zh:'报价单编号'},
+  lblDocDate: {lo:'ວັນທີ', zh:'日期'},
+  lblValidDate: {lo:'ໃຊ້ໄດ້ຮອດວັນທີ (ອາຍຸໃບສະເໜີ)', zh:'有效期至'},
+  lblDiscountPct: {lo:'ສ່ວນຫຼຸດ (%)', zh:'折扣 (%)'},
+  lblAttachUpload: {lo:'ອັບໂຫລດຮູບ (ຈະສະແດງທາງລຸ່ມຂອງ "ລວມທັງໝົດ" ໃນເອກະສານ)', zh:'上传图片（将显示在"总计"下方）'},
+  lblSheetUrl: {lo:'Web App URL (ຈາກ Google Apps Script)', zh:'Web App URL（来自 Google Apps Script）'},
+  btnAddItem: {lo:'ເພີ່ມລາຍການ', zh:'添加项目'},
+  btnLoadItems: {lo:'ດຶງລາຍການສິນຄ້າຈາກ Sheet', zh:'从表格读取商品列表'},
+  btnSaveQuote: {lo:'ບັນທຶກໃບສະເໜີນີ້ໄປ Sheet', zh:'保存此报价单到表格'},
+  btnPrint: {lo:'ພິມ / ບັນທຶກເປັນ PDF', zh:'打印 / 另存为PDF'},
+  btnExportImg: {lo:'Export ເປັນຮູບພາບ (PNG)', zh:'导出为图片（PNG）'},
+  btnRmImg: {lo:'ລຶບຮູບ', zh:'删除图片'},
+  docTitle: {lo:'ໃບສະເໜີລາຄາ', zh:'报价单'},
+  docNoLabel: {lo:'ເລກທີ:', zh:'编号:'},
+  docDateLabel: {lo:'ວັນທີ:', zh:'日期:'},
+  docValidLabel: {lo:'ໃຊ້ໄດ້ຮອດ:', zh:'有效期至:'},
+  docToLabel: {lo:'ສະເໜີເຖິງ', zh:'报价对象'},
+  signSeller: {lo:'ຜູ້ສະເໜີລາຄາ', zh:'报价人'},
+  signBuyer: {lo:'ຜູ້ອະນຸມັດ / ລູກຄ້າ', zh:'客户 / 审批人'},
+  signLine: {lo:'ລາຍເຊັນ ແລະ ວັນທີ', zh:'签名及日期'},
+  thNo: {lo:'ລ.', zh:'序号'},
+  thItem: {lo:'ລາຍການ', zh:'项目'},
+  thSize: {lo:'ຂະໜາດ', zh:'尺寸'},
+  thQty: {lo:'ຈຳນວນ', zh:'数量'},
+  thPrice: {lo:'ລາຄາ/ໜ່ວຍ', zh:'单价'},
+  thLineTotal: {lo:'ລວມ', zh:'小计'},
+  reportTitle: {lo:'ໜ້າລາຍງານ — ໃບສະເໜີລາຄາທີ່ບັນທຶກໄວ້', zh:'报表页面 — 已保存的报价单'},
+  reportSearchPh: {lo:'ຄົ້ນຫາຕາມເລກທີ ຫຼື ຊື່ລູກຄ້າ', zh:'按编号或客户名称搜索'},
+  btnRefresh: {lo:'ໂຫລດຂໍ້ມູນ', zh:'加载数据'},
+  thSavedDate: {lo:'ວັນທີບັນທຶກ', zh:'保存日期'},
+  thDocNo: {lo:'ເລກທີ', zh:'编号'},
+  thDate: {lo:'ວັນທີ', zh:'日期'},
+  thClient: {lo:'ລູກຄ້າ', zh:'客户'},
+  thGrandTotal: {lo:'ຍອດລວມ', zh:'总额'},
+  thAction: {lo:'ຈັດການ', zh:'操作'},
+  reportEmptyMsg: {lo:'ຍັງບໍ່ມີຂໍ້ມູນ — ກົດ "ໂຫລດຂໍ້ມູນ" ຫຼັງຈາກຕັ້ງຄ່າ Web App URL ແລ້ວ', zh:'暂无数据 — 设置 Web App URL 后点击"加载数据"'},
+  lblSize: {lo:'ຂະໜາດ', zh:'尺寸'},
+  lblQty: {lo:'ຈຳນວນ', zh:'数量'},
+  lblPrice: {lo:'ລາຄາ/ໜ່ວຍ', zh:'单价'},
+  lblLineTotal: {lo:'ລວມ', zh:'小计'},
+  subtotal: {lo:'ລວມຍ່ອຍ', zh:'小计'},
+  currency: {lo:'ກີບ', zh:'基普'},
+  discountPct: {lo:'ສ່ວນຫຼຸດ ({n}%)', zh:'折扣 ({n}%)'},
+  grandTotal: {lo:'ລວມທັງໝົດ', zh:'总计'},
+  btnEdit: {lo:'ແກ້ໄຂ', zh:'编辑'},
+  btnDelete: {lo:'ລຶບ', zh:'删除'},
+};
+
+function t(key){
+  const entry = translations[key];
+  if(!entry) return key;
+  return entry[currentLang] || entry.lo;
+}
+
+function applyLanguage(){
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.getAttribute('data-i18n');
+    el.textContent = t(key);
+  });
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const key = el.getAttribute('data-i18n-placeholder');
+    el.placeholder = t(key);
+  });
+  document.documentElement.lang = currentLang === 'zh' ? 'zh' : 'lo';
+  document.getElementById('langToggleBtn').textContent = currentLang === 'lo' ? '🌐 中文' : '🌐 ລາວ';
+  renderItemsForm();
+  updatePreview();
+  renderReportTable();
+}
+
+document.getElementById('langToggleBtn').addEventListener('click', () => {
+  currentLang = currentLang === 'lo' ? 'zh' : 'lo';
+  applyLanguage();
+});
 
 /* ===================== VIEW TOGGLE ===================== */
 let reportRecords = [];
@@ -1104,8 +1203,8 @@ function renderReportTable(){
       <td class="num">${fmt(Number(r.grandTotal)||0)}</td>
       <td>
         <div class="row-actions">
-          <button class="btn-edit" data-docno="${escapeHtml(String(r.docNo||''))}">✏️ ແກ້ໄຂ</button>
-          <button class="btn-delete" data-docno="${escapeHtml(String(r.docNo||''))}">🗑️ ລຶບ</button>
+          <button class="btn-edit" data-docno="${escapeHtml(String(r.docNo||''))}">✏️ ${t('btnEdit')}</button>
+          <button class="btn-delete" data-docno="${escapeHtml(String(r.docNo||''))}">🗑️ ${t('btnDelete')}</button>
         </div>
       </td>
     `;
@@ -1175,6 +1274,13 @@ async function deleteRecord(docNo){
     setReportStatus('ລຶບບໍ່ສຳເລັດ — ກວດສອບການເຊື່ອມຕໍ່', true);
   }
 }
+
+// init
+document.getElementById('docDate').value = todayStr();
+document.getElementById('validDate').value = todayStr(15);
+renderItemsForm();
+updatePreview();
+applyLanguage();
 </script>
 
 </body>
